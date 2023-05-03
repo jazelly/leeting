@@ -1,3 +1,4 @@
+# this beats 5% of space and time
 class Solution:
     def generate(self, numRows: int):
         # based on a given list, get next list
