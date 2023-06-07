@@ -5,24 +5,42 @@ class TreeNode:
         self.left = left
         self.right = right
 
-def search(root, val):
-  if root == None:
-     return
-
-  if val == root.val:
-    return val
-
-  return search(root.left) if val < root.val else search(root.right)
-
-def post_order(root):
-  if root == None:
-     return
-  post_order(root.right)
-  print(root.val)
-  post_order(root.left)
+def post_order(root, res = []):
+  if root.right != None:
+    post_order(root.right, res)
+  res.append(root) # print root.val
+  if root.left != None:
+    post_order(root.left, res)
+  
+# Convert a BST to array
+# None on None node
+def bfs(roots, res = []):
+  newRoots = []
+  buffer = []
+  allNone = True
+  for r in roots:
+    buffer.append(r.val) if r != None else buffer.append(None)
+    if r != None:
+      allNone = False
+      newRoots.append(r.left)
+      newRoots.append(r.right)
+    else:
+       newRoots.append(None)
+       newRoots.append(None)
+  if allNone:
+    return res
+  else:
+    res += buffer
+    bfs(newRoots, res)
+  return res
 
 class Solution:
-    def bstToGst(self, root: TreeNode) -> TreeNode:
-      rightest = post_order(root)
+    def bstToGst(self, root: TreeNode):
+        nodes = []
+        post_order(root, nodes)
+        c = 0
+        for node in nodes:
+          c += node.val
+          node.val = c
       
-      
+        return root
