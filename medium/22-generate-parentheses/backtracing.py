@@ -1,5 +1,5 @@
+# https://leetcode.com/problems/generate-parentheses/
 # beats 5% on space and time
-
 class Solution:
     def generateParenthesis(self, n):
         def f(left, right, s):

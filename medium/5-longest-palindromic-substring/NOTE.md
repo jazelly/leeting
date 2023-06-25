@@ -11,4 +11,6 @@ Notice, for the case 'bbb', it's not originated from 'bb'. Instead, 'bbb' is the
 Ok, checked the solution. Looks like the O(n^2) is the best way?
 
 One lesson I learned was stopping diving into O(n) solution in the first place. 
-Been wasting a lot of time on that.
+Been wasting a lot of time on that. Need to get a sense what is possible
+
+Or, do the brute force and slowly optimise from there.

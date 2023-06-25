@@ -1,10 +1,10 @@
+# https://leetcode.com/problems/maximum-subarray/
 # this beats 90% of time and 10% of space
-
 class Solution:
     def maxSubArray(self, nums):
         dp = []
-        start = -10000 # should be negative INT_MAX
-        max_sum = -10000 # should be negative INT_MAX
+        start = -10000 # or negative INT_MAX
+        max_sum = -10000 # or negative INT_MAX
         the_sum = 0
         for i in range(len(nums)):
             the_sum += nums[i]
