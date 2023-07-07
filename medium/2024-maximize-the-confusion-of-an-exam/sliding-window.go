@@ -1,6 +1,6 @@
-package maxConsecutiveAnswers
+package main
 
-func maxConsecutiveAnswers(answerKey string, k int) int {
+func maxConsecutiveAnswers1(answerKey string, k int) int {
 	if len(answerKey) < 2 {
 		return len(answerKey)
 	}
