@@ -1,5 +1,6 @@
 package main
 
+// Sliding window is particually useful for questions looking for an consecutive answer
 func maxConsecutiveAnswers1(answerKey string, k int) int {
 	if len(answerKey) < 2 {
 		return len(answerKey)
