@@ -1,5 +1,6 @@
 package main
 
+// TODO: revisit to grasp the intention
 func maxConsecutiveAnswers(answerKey string, k int) int {
 	rF, lF, kF := 0, 0, k
 	rT, lT, kT := 0, 0, k

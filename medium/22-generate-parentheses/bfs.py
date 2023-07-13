@@ -1,4 +1,3 @@
-# https://leetcode.com/problems/generate-parentheses/ß
 # beats 5% on space and time
 
 from typing import List
