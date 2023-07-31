@@ -1,25 +1,27 @@
 package minimumString
 
+import "strings"
+
 func minimumString(a string, b string, c string) string {
 	res := "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
-	
+
 	keep := func(abcabc string) {
-			if len(abcabc) < len(res) {
+		if len(abcabc) < len(res) {
+			res = abcabc
+			return
+		}
+		if len(abcabc) == len(res) {
+			for i := 0; i < len(res); i++ {
+				if abcabc[i] < res[i] {
 					res = abcabc
 					return
+				} else if abcabc[i] == res[i] {
+					continue
+				} else {
+					break
+				}
 			}
-			if len(abcabc) == len(res) {
-					for i:=0; i< len(res); i++ {
-							if abcabc[i] < res[i] {
-									res = abcabc
-									return
-							} else if abcabc[i] == res[i] {
-									continue
-							} else {
-									break
-							}
-					}
-			}
+		}
 	}
 
 	keep(findOverlap(c, findOverlap(a, b)))
@@ -38,27 +40,26 @@ func minimumString(a string, b string, c string) string {
 	return res
 }
 
-
 func findOverlap(a string, b string) string {
 	if strings.Contains(a, b) {
-			return a
+		return a
 	}
-	
+
 	// a + b
 	var ab string
 	i := 0
 	j := len(a) - 1
-	
+
 	resi := 0
 	for i < len(b) && j >= 0 {
-			if a[j:] == b[:i+1] {
-					resi = i+1
-			}
-			i++
-			j-- 
+		if a[j:] == b[:i+1] {
+			resi = i + 1
+		}
+		i++
+		j--
 	}
-	
-	ab = a + b[resi:]    
-	
+
+	ab = a + b[resi:]
+
 	return ab
 }
