@@ -1,5 +1,6 @@
 package countCompleteSubarrays
 
+// https://leetcode.com/contest/weekly-contest-356/problems/count-complete-subarrays-in-an-array/
 func countCompleteSubarrays(nums []int) int {
 	dwmap := make(map[int]bool)
 	for _, v := range nums {
