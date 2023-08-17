@@ -1,4 +1,6 @@
-package PartitionList
+package main
+
+import "fmt"
 
 type ListNode struct {
 	Val  int
@@ -11,7 +13,7 @@ func partition(head *ListNode, x int) *ListNode {
 	cursor := head
 	for cursor != nil {
 		theNext := cursor.Next
-		cursor.Next = nil
+		// cursor.Next = nil
 
 		if cursor.Val < x {
 			if lc == nil {
@@ -40,4 +42,14 @@ func partition(head *ListNode, x int) *ListNode {
 
 	lc.Next = rhead
 	return lhead
+}
+
+func main() {
+	head := &ListNode{Val: 2}
+	one := &ListNode{Val: 1}
+	head.Next = one
+	h := partition(head, 2)
+	for h != nil {
+		fmt.Println(h.Val)
+	}
 }
